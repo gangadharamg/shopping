@@ -1,0 +1,165 @@
+
+
+<div class="main-content"style="    width: 1150px;
+margin-top: 40px;
+margin-left: 316px;">
+    <div class="container-fluid">
+        <div class="row" style = "width:950px;margin-left: 50px;margin-top:30px;">
+                <p style= " font-family: 'Roboto Medium'; "><sup>&#10033;</sup>Do you want update your address profile Please, 
+                    <span style="color:teal;text-decoration: underline;cursor: pointer;" (click)="addresshandling()">click here</span></p>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h5 class="card-title" style= " font-family: 'Roboto Medium';color:teal;margin-bottom: 0px;">Your Address</h5>
+                        <p class="card-category" style= " font-family: 'Roboto Medium';color:teal;margin-bottom: 0px;">Enter your new address</p>
+                    </div>
+                    <div class="card-body">
+                        <form   #address = "ngForm" novalidate (ngSubmit)="someAddress();">
+                            <div class="row">
+                        <div class="col-md-6">
+                                    <mat-form-field style= " font-family: 'Roboto Medium';" class="example-full-width">
+                                        <input matInput name="addressdata.addrLine1" #addrLine1="ngModel"
+                                    type="text" placeholder=" address Line1"  [(ngModel)]="addressdata.addrLine1" required >
+                                    <mat-error>This field is required</mat-error>
+                                </mat-form-field>
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <mat-form-field style= " font-family: 'Roboto Medium';" class="example-full-width">
+                                      <input matInput name="addressdata.addrLine2" #addrLine2="ngModel"
+                                      type="text"  placeholder="landmark" [(ngModel)] = "addressdata.addrLine2"  required >
+                                       <mat-error>This field is required</mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <mat-form-field  style= " font-family: 'Roboto Medium';" class="example-full-width">
+                                    <input matInput name="addressdata.city"  #city="ngModel"
+                                    type="text"  placeholder="city" [(ngModel)] = "addressdata.city" required >
+
+                                    <mat-error>This field is required</mat-error>
+                                  </mat-form-field>
+                                </div>
+
+
+                                <div class="col-md-6">
+                                  <mat-form-field  style= " font-family: 'Roboto Medium';" class="example-full-width">
+                                    <input matInput name="addressdata.state" #state="ngModel"
+                                    type="text"  placeholder="state"
+                                     [(ngModel)] = "addressdata.state" required>
+                                     <mat-error>This field is required</mat-error>
+                                  </mat-form-field>
+                                </div>
+                            </div>
+                         <div class="row">
+                                <div class="col-md-6">
+                                  <mat-form-field  style= " font-family: 'Roboto Medium';" class="example-full-width">
+                                    <input matInput name="addressdata.country" #country ="ngModel"
+                                   type="text"  placeholder="country"
+                                   [(ngModel)] = "addressdata.country" required>
+                                   <mat-error>This field is required</mat-error>
+
+                                  </mat-form-field>
+                                </div>
+
+                                    <div class="col-md-6">
+                                      <mat-form-field style= " font-family: 'Roboto Medium';"  class="example-full-width">
+                                        <input matInput name="addressdata.pincode" #pincode ="ngModel"
+                                       type="text"  placeholder="pincode"
+                                       [(ngModel)] = "addressdata.pincode" required>
+                                       <mat-error>This field is required</mat-error>
+
+                                      </mat-form-field>
+                                    </div>
+                                    </div>
+                                    <div class ="row">
+                                    <div class="col-md-6">
+                                       
+                                        <label class="radio-inline" style= " font-family: 'Roboto Medium';">
+                                            Address Tag :&nbsp;<input type="radio"  #addresstag ="ngModel" [(ngModel)]="addressdata.addressTag" value = "home" name="addressTag" checked>Home
+                                              </label> &nbsp;
+                                              <label class="radio-inline">
+                                                <input type="radio" #addresstag ="ngModel"  [(ngModel)]="addressdata.addressTag" value = "Office" name="addressTag">Office  </label>
+                                            
+                                         </div>
+                                
+                                         <div class="col-md-6">
+                                           
+                                            <label class="radio-inline" style= " font-family: 'Roboto Medium';" >
+                                                Default Address :&nbsp;<input type="radio" #defaultaddress ="ngModel" [(ngModel)]="addressdata.defaultAddress" value = "true" name="defaultAddress" (click) = "defaultAddress()">Yes
+                                                  </label> &nbsp;
+                                                  <label class="radio-inline">
+                                                    <input type="radio" #defaultaddress ="ngModel" [(ngModel)]="addressdata.defaultAddress" value = "false" name="defaultAddress" checked = "checked" checked = "checked">No</label>
+                                         </div>
+                                        </div>
+                                    <div class="pull-right">
+                            <button *ngIf="action == 'save'" style= " font-family: 'Roboto Medium';" mat-raised-button type="submit" class="btn btn-primary" >save</button> &nbsp;
+                            <button *ngIf="action == 'edit'"  style= " font-family: 'Roboto Medium';"  mat-raised-button type="submit" class="btn btn-danger" >update</button>&nbsp;
+                         <!-- <button mat-raised-button type="button" id="reset" (click)="address.reset();action='save'" class="btn btn-default" >Clear</button>&nbsp; -->
+                        </div> <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+             
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+<!-- <div style="    width: 750px;
+            margin-top: 107px;
+margin-left: 316px;">
+    <ag-grid-angular  style="width: 100%; height: 200px;" class="ag-theme-balham"
+          [rowData]="rowData" [columnDefs]="columnDefs">
+    </ag-grid-angular>
+</div> -->
+<!-- temp -->
+
+
+<div *ngIf = "addressupdation" class="container" style="    width: 745px;
+margin-top: 30px;
+margin-left: 326px;">
+<div *ngIf="usermessage" >
+    <h5 class="text-danger" style =" font-family: 'Roboto Medium'; "> No records found, Please Enter your Address Details</h5>
+ </div> 
+<h5 style = "color:teal;  font-family: 'Roboto Medium';"> <a style= "text-decoration: none;color:teal" href ="/viewAccount" title ="view profile">{{getUserName()}}</a> AddressBook</h5>
+ <p style= " font-family: 'Roboto Medium';margin-left: 646px;">
+                    <span style="color:teal;text-decoration: underline;cursor: pointer;" (click)="addressclose()">Close</span></p>
+<table style= " font-family: 'Roboto Medium';" class="table border">
+    
+    <tr><th>Id</th>
+  <th>City</th>
+  <th>State</th>
+  <th>Country</th>
+  <th>Pincode</th>
+  <th>Address Line 1</th>
+  <th>Address Line 2</th>
+  <th>Address Tag</th>
+ <th>Default Address</th>
+ 
+  <th>Action</th>
+</tr> 
+  <tr *ngFor="let address of addressList.addressResponseLst" >
+    <td>{{address.id}}</td>
+    <td>{{address.city}}</td>
+    <td>{{address.state}}</td>
+    <td>{{address.country}}</td>
+    <td>{{address.pincode}}</td>
+    <td>{{address.addrLine1}}</td>
+    <td>{{address.addrLine2}}</td>
+    <td>{{address.addressTag}}</td>
+    <td>{{address.defaultAddress}}</td>
+    
+   <!-- <td><input type="radio" name="deafaultAddress" value="true" (click) = "defaultAddress(address)"></td> -->
+    <td ><a title="Edit" style="cursor: pointer !important ;color: #007bff !important;" (click)="editAddress(address)"><i class="fa fa-edit" ></i></a>&nbsp;&nbsp;
+        <a title="Delete"  style="cursor: pointer !important ;color: #007bff !important;" (click)="deleteAddress(address)"><i class="fa fa-trash" ></i></a>
+    </td>
+   
+  </tr>
+</table>
+
+</div>

@@ -1,0 +1,17 @@
+
+<section class="filter-wrapper">
+ <div class="keyword-wrapper">
+
+<input [(ngModel)]="searchText" type="search"  placeholder="search for artists..." autofocus/>
+
+  </div>
+<ul class="filter-select" >
+
+  <li *ngFor="let result of results | filter: searchText" class="filter-select-list">
+        <img src="{{result.image}}" alt="" width="50" height="50">
+        <p class="artist-name">{{result.name}}</p>
+
+  <li>
+</ul>
+
+</section>

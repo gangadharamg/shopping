@@ -1,0 +1,110 @@
+<!-- header slider -->
+
+<ngb-carousel *ngIf="images">
+  <ng-template ngbSlide>
+    <img [src]="images[0]" alt="Random first slide">
+    <div class="carousel-caption">
+      <h3>E shopping site</h3>
+      <p>Ecommerce solution</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <img [src]="images[1]" alt="Random second slide">
+    <div class="carousel-caption">
+      <h3>Shopping</h3>
+      <p>Evoke E-cart  solution</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <img [src]="images[2]" alt="Random third slide">
+    <div class="carousel-caption">
+      <h3>Checkout</h3>
+      <p>Ecommerce  solution</p>
+    </div>
+  </ng-template>
+</ngb-carousel>
+<!-- //end header slider -->
+<div class="clearfix top_30px">
+  <!-- search Box -->
+  <div class="col-md-6 " style="margin:5px;padding:5px;margin-left:35%;">
+    <form class="form-inline  " >
+      <input class="form-control" name="searchInput" placeholder="Search .." #searchInput="ngModel" [(ngModel)]="searchText" style="width:30%;">
+    <button type="button" class="btn btn-outline-warning" (click)="searchText=''">X</button>
+    </form>
+  </div>
+  <!-- // search Box -->
+</div>
+
+<!-- product lits view -->
+<div class="row offset-1" style = "margin-left: 20px;
+margin-right: 20px;">
+    <div *ngFor="let products of Products " class="product-layout col-lg-3 col-md-4 col-sm-6 col-xs-12 ">
+    <div class="product-thumb transition" *ngIf="filterProduct(products)">
+      <!-- dummy image  -->
+<div (click)="onRoutingProduct(products)">
+    <div class="image product_thumbnail">
+      <img src="{{imagePath}}{{products.img_path}}" alt="image" title="MacBook" class="img-responsive "></div>
+
+    <div class="caption">
+    <!--<h4><a href="https://demo.opencart.com/index.php?route=product/product&amp;product_id=43">MacBook</a></h4>-->
+    <p>
+        {{products.product_name}}</p>
+    <p class="price">
+        {{products.price}}
+    <span class="price-tax">Ex Tax: $500.00</span>
+    </p>
+    </div>
+<div>
+    <div class="button-group">
+    <button type="button" (click)="addcart(products)"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Add to Cart</span></button>
+    <button type="button" data-toggle="tooltip" title="" (click)="wishlist(products)" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></button>
+
+    </div>
+    </div>
+    </div>
+    </div>
+<!--
+<div class="container ">
+<div class="col-lg-3 df"><img href="#" target="_blank" src="assets/img/bike-2.jpg">
+<img target="_blank" src="assets/img/bike-2.jpg"></div>
+</div> -->
+<!--<div class=" container">
+<div class="card-body " *ngFor="let products of product">
+<div class="gallery">
+<img src= '{{products.imageurl}}' width="600" height="400" class="rounded float" alt="..."(click) = view(products)/></div>
+<div class="card-title">{{products.productName}}</div>
+<p class="card-text">{{products.price}}</p>
+<a class="btn btn-primary" (click)="addcart(products)">+addcart</a>&nbsp;
+<a class="btn btn-warning" (click)="wishlist(products)">wishlist</a>
+</div>
+</div>
+</div>
+
+<body>
+
+<div class="gallery">
+<a target="_blank" href="img_5terre.jpg">
+<img src="5terre.jpg" alt="5Terre" width="600" height="400">
+</a>
+<div class="desc">Add a description of the image here</div>
+</div>
+<div class="gallery">
+<a target="_blank" href="img_forest.jpg">
+<img src="img_forest.jpg" alt="Forest" width="600" height="400">
+</a>
+<div class="desc">Add a description of the image here</div>
+</div>
+<div class="gallery">
+<a target="_blank" href="img_lights.jpg">
+<img src="img_lights.jpg" alt="Northern Lights" width="600" height="400">
+</a>
+<div class="desc">Add a description of the image here</div>
+</div>
+<div class="gallery">
+<a target="_blank" href="img_mountains.jpg">
+<img src="img_mountains.jpg" alt="Mountains" width="600" height="400">
+</a>
+<div class="desc">Add a description of the image here</div>
+</div>
+</body>
+-->

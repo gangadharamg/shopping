@@ -1,0 +1,65 @@
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark header-margin-bottom static-top">
+    <a class="navbar-brand" href="/home" style ="  font-family: 'Roboto Medium'">
+  
+      <img src="./assets/img/evkee.jpeg" ></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item " *ngIf="isUserLoggedIn()">
+        <a class="nav-link" style= " font-family: 'Roboto Medium';" href="/admin">Manage Products <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" style= " font-family: 'Roboto Medium';">
+        <a class="nav-link" href="about">About</a>
+      </li>
+
+      <li class="nav-item" style= " font-family: 'Roboto Medium';">
+        <a class="nav-link" href="contact">Contact</a>
+      </li>
+      
+    </ul>
+
+
+    <div class="form-inline my-2 my-lg-0">
+
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" href="cart" >
+                <i class="fa fa-heart"></i><span  style= " font-family: 'Roboto Medium'; ">Wish List&nbsp;<!--({{wishListSize}})--></span>
+            </a>
+
+            <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" href="cart" >
+              <i class="fa fa-shopping-cart"></i><span span (click) ="cart()" style= " font-family: 'Roboto Medium'; " >Cart&nbsp;<!--({{cartListSize}})-->
+            </span></a>
+            <!-- <a *ngIf="isUserLoggedIn()"  href="/viewaccount" class="nav-item nav-link "><i class="fa fa-user"></i>
+              {{getUserName()}} </a> -->
+
+        <!-- if not logged in -->
+        <a class="nav-item nav-link" *ngIf="!(isUserLoggedIn())" href="login" >
+           <i class="fa fa-user"></i> &nbsp;login/Signup
+        </a>
+
+        <!-- dropdown starts here  -->
+         <li class="nav-item dropdown" *ngIf="isUserLoggedIn()">
+         <a style= " font-family: 'Roboto Medium';" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <i class="fa fa-user"></i>
+             {{getUserName()}}
+         </a>
+         <div  style= " font-family: 'Roboto Medium';" class="dropdown-menu" aria-labelledby="navbarDropdown">
+           <a class="dropdown-item" href="/viewAccount">My Account</a>
+           <a class="dropdown-item" href="/addressBook">My Address</a>
+           <a class="dropdown-item" *ngIf="isUserLoggedIn()" (click)="logout()" href="/login">Logout</a>
+           <div class="dropdown-divider"></div>
+           <a class="dropdown-item" *ngIf="isAdmin()" href="/admin"> Product Upload</a>
+         </div>
+       </li>
+       <!-- ends here -->
+
+        <!-- <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" (click)="logout()" href="/login">Logout</a> -->
+
+  </div>
+</div>
+</div>
+</nav>

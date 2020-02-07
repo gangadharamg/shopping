@@ -1,0 +1,19 @@
+form-group{
+    
+    width: 75%
+}
+
+panel-title{
+    text-align: justify;
+    background-color: rgb(177, 205, 247);
+}
+
+
+.padding-extra-large {
+    border-style: ridge;
+    padding: 20px 26px!important;
+}
+
+.ex1 {
+    width:650px;
+}
